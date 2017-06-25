@@ -1,0 +1,7 @@
+com\shop\controller\PictureController.class
+com\shop\controller\ContentCategoryController.class
+com\shop\controller\ItemParamController.class
+com\shop\controller\PageController.class
+com\shop\controller\ItemCatController.class
+com\shop\controller\ItemController.class
+com\shop\controller\ItemParamItemController.class
