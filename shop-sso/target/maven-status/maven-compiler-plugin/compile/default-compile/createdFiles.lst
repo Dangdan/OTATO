@@ -1,0 +1,7 @@
+com\shop\sso\controller\UserController.class
+com\shop\sso\service\UserService.class
+com\shop\sso\dao\impl\JedisClientCluster.class
+com\shop\sso\dao\JedisClient.class
+com\shop\sso\service\impl\UserServiceImpl.class
+com\shop\sso\dao\impl\JedisClientSingle.class
+com\shop\sso\controller\PageController.class
