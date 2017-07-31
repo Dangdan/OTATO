@@ -52,6 +52,8 @@ public class LoginInteceptor implements HandlerInterceptor {
 		}
 		//取到用户信息，放行
 		//返回值决定handler是否放行，true：放行，false：不执行
+		//为订单页面获取用户信息做铺垫
+		request.setAttribute("user", user);
 		return true;
 	}
 

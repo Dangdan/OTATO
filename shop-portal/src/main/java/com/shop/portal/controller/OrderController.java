@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.shop.pojo.TbUser;
 import com.shop.portal.pojo.CartItem;
 import com.shop.portal.pojo.Order;
 import com.shop.portal.service.CartService;
@@ -35,9 +36,17 @@ public class OrderController {
 	}
 	
 	@RequestMapping("/create")
-	public String createOrder(Order order,Model model) {
+	public String createOrder(Order order,Model model,HttpServletRequest request) {
 		try {
-			String orderId = orderService.createOrder(order);
+			//直接从request中获取从拦截器那里存的user的信息
+			TbUser user=(TbUser) request.getAttribute("user");
+			
+			//在order中补全用户信息
+			order.setUserId(user.getId());
+			order.setBuyerNick(user.getUsername());
+			
+			String orderId = orderService.createOrder(order,request);
+			
 			model.addAttribute("orderId", orderId);
 			model.addAttribute("payment", order.getPayment());
 			//给日期加3天
